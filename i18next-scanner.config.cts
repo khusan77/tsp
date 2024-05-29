@@ -5,7 +5,7 @@ module.exports = {
         "!i18n/**",
         "!**/node_modules/**",
     ],
-    output: "./",
+    output: "standalone",
     options: {
         compatibilityJSON: "v3",
         debug: true,
