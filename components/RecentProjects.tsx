@@ -28,8 +28,8 @@ const RecentProjects = () => {
   return (
     <div className="py-20" id="contacts">
       <h1 className="heading">
-        A small selection of{" "}
-        <span className="text-purple">recent projects</span>
+        Our{" "}
+        <span className="text-purple">Contacts</span>
       </h1>
 
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
