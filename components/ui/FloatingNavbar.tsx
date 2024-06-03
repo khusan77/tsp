@@ -167,7 +167,7 @@ export const FloatingNav = ({
 <Listbox value={selected} onChange={setSelected}>
     {({ open }) => (
       <>
-        <div className="relative mt-1.5 w-8 h-4">
+        <div className="relative -mt-2 w-8 h-4">
 
 
           <ListboxButton className="relative w-full rounded-md py-0.5 pl-1 pr-1 shadow-sm focus:outline-none">
