@@ -8,6 +8,10 @@ import Lottie from "react-lottie";
 import { cn } from "@/utils/cn";
 
 
+import {useTranslation} from 'react-i18next';
+import '../../src/i18n';
+
+
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
@@ -20,6 +24,7 @@ export const BentoGrid = ({
   className?: string;
   children?: React.ReactNode;
 }) => {
+
   return (
     <div
       className={cn(
@@ -53,10 +58,16 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["Rolls", "Pipes", "Profiles"];
-  const rightLists = ["Metalls", "Rolls", "Pipes"];
+  const {t, i18n } = useTranslation();
+
+  const leftLists = [t("Прокат"), t("Трубы"), t("Профили")];
+  const rightLists = [t("Металл"), t("Прокат"), t("Трубы")];
 
   const [copied, setCopied] = useState(false);
+
+
+
+
 
   const defaultOptions = {
     loop: copied,
@@ -68,7 +79,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "@khusan_ns";
+    const text = "@jam_y77";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -90,7 +101,9 @@ export const BentoGridItem = ({
       }}
     >
       {/* add img divs */}
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+      <div className= 
+      {
+        `${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
 
 
@@ -133,13 +146,13 @@ export const BentoGridItem = ({
           )}
         >
           {/* change the order of the title and des, font-extralight, remove text-xs text-neutral-600 dark:text-neutral-300 , change the text-color */}
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+          <div className="font-sans font-extralight md:max-w-34 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
             {description}
           </div>
           {/* add text-3xl max-w-96 , remove text-neutral-600 dark:text-neutral-300*/}
           {/* remove mb-2 mt-2 */}
           <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
+            className={`font-sans text-lg lg:text-3xl max-w-100 font-bold z-10`}
           >
             {title}
           </div>
@@ -177,6 +190,7 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
+
           {id === 6 && (
             <div className="mt-5 relative">
               {/* button border magic from tailwind css buttons  */}
@@ -192,7 +206,7 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={copied ? "Username is Copied!" : "Copy our telegram username"}
+                title={copied ? t("Юсернейм скопирован!") : t("Скопируйте наш телеграм юсернейм")}
                 icon={<IoCopyOutline />}
                 width="50"
                 position="left"
@@ -202,6 +216,8 @@ export const BentoGridItem = ({
             </div>
           )}
         </div>
+
+
       </div>
     </div>
   );

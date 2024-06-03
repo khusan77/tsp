@@ -8,7 +8,8 @@ import { PinContainer } from "./ui/Pin";
 import { Meteors } from "./ui/Meteors";
 
 
-
+import {useTranslation} from 'react-i18next';
+import '../src/i18n';
  
 import { useRef, useState } from "react";
 import Image from "next/image";
@@ -24,6 +25,8 @@ import { catalogue } from "@/data";
 
 const Catalogue = () => {
 
+  const {t, i18n } = useTranslation();
+
     const imageUrl =
     "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjc1fHxtZWV0aW5nfGVufDB8fDB8fHww";
 
@@ -32,8 +35,8 @@ const Catalogue = () => {
   return (
     <div className="py-20" id="catalogue">
       <h1 className="heading">
-        Look at our products
-        <span className="text-purple"> Catalogue</span>
+        {t('Просмотрите наш')}
+        <span className="text-purple"> {t('Каталог')}</span>
       </h1>
 
 
@@ -48,17 +51,17 @@ const Catalogue = () => {
 
         <div className="lg:min-h-[22rem] md:h-[22rem] h-[15rem] flex items-center justify-center sm:w-80 w-[80vw]" key={item.id}>
         <DirectionAwareHover imageUrl={item.img}>
-          <p className="font-bold text-[.8rem] md:text-2xl">{item.title}</p>
-          <p className="font-normal text-[.7rem] w-[12rem] md:w-72 md:text-sm">{item.des}</p>
+          <p className="font-bold text-[.8rem] md:text-2xl">{t(item.title)}</p>
+          <p className="font-normal text-[.7rem] w-[12rem] md:w-72 md:text-sm">{t(item.des)}</p>
           <ul>
             <br />
-            <p className="text-[0.65rem] md:text-sm">{item.additionalInfo?.title}</p>
-            <li className="text-[0.65rem] md:text-sm">{item.additionalInfo?.features?.first}</li>
-            <li className="text-[0.65rem] md:text-sm">{item.additionalInfo?.features?.second}</li>
-            <li className="text-[0.65rem] md:text-sm">{item.additionalInfo?.features?.third}</li>
-            <li className="text-[0.65rem] md:text-sm">{item.additionalInfo?.features?.fourth}</li>
-            <li className="text-[0.65rem] md:text-sm">{item.additionalInfo?.features?.fiveth}</li>
-            <li className="text-[0.65rem] md:text-sm">{item.additionalInfo?.features?.sixth}</li>
+            <p className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.title)}</p>
+            <li className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.features?.first)}</li>
+            <li className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.features?.second)}</li>
+            <li className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.features?.third)}</li>
+            <li className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.features?.fourth)}</li>
+            <li className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.features?.fiveth)}</li>
+            <li className="text-[0.65rem] md:text-sm">{t(item.additionalInfo?.features?.sixth)}</li>
           </ul>
         </DirectionAwareHover>
       </div>

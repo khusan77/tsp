@@ -9,7 +9,16 @@ import { Meteors } from "./ui/Meteors";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 
+
+
+
+import {useTranslation} from 'react-i18next';
+import '../src/i18n';
+
+
+
 const RecentProjects = () => {
+  const {t, i18n } = useTranslation();
   const [copied, setCopied] = useState(false);
   const defaultOptions = {
     loop: copied,
@@ -28,8 +37,8 @@ const RecentProjects = () => {
   return (
     <div className="py-20" id="contacts">
       <h1 className="heading">
-        Our 
-        <span className="text-purple">Contacts</span>
+        {t('Наши')} 
+        <span className="text-purple"> {t('Контакты')}</span>
       </h1>
 
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
@@ -39,7 +48,7 @@ const RecentProjects = () => {
             key={item.id}
           >
             <PinContainer
-              title="Location"
+              title={t("Локация")}
               href="https://localhost:3000"
             >
               <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
@@ -52,7 +61,7 @@ const RecentProjects = () => {
               </div>
 
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {item.title}
+                {t(item.title)}
               </h1>
 
               <p
@@ -62,7 +71,7 @@ const RecentProjects = () => {
                   margin: "1vh 0",
                 }}
               >
-                {item.des}
+                {t(item.des)}
               </p>
 
               <div className="flex items-center justify-between mt-7 mb-3">
@@ -82,7 +91,7 @@ const RecentProjects = () => {
 
                 <div className="flex justify-center items-center">
                   <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                    Check Location
+                    {t('Перейти')}
                   </p>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
@@ -116,20 +125,20 @@ const RecentProjects = () => {
             </div>
 
             <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-              Contacts
+              {t('Контакты')}
             </h1>
 
             <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-              Galvanized steel: +998 94 672 40 00
+              {t('Оцинкованный прокат')}: <br /> +998 94 672 40 00 <br />
             </p>
             <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-              Rolled metal: +998 93 554 98 98
+            {t('Трубная продукция')}: <br /> +998 93 554 98 98<br />
             </p>
             <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-              Profiles: +998 99 720 17 17
+            {t('Оцинкованные профили для гипсокартона')}: <br /> +998 99 720 17 17
             </p>
             <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-              Pipe products: +998 90 109 09 09
+            {t('Металлопрокат')}: <br /> +998 90 109 09 09
             </p>
 
             <div className="mt-5 relative">
@@ -145,7 +154,7 @@ const RecentProjects = () => {
                 {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
               </div>
             <MagicButton
-                title={copied ? "Username is Copied!" : "Copy our telegram username"}
+                title={copied ? t("Юзернейм скопирован!") : t("Скопируйте юзернейм телеграма")}
                 icon={<IoCopyOutline />}
                 width="50"
                 position="left"

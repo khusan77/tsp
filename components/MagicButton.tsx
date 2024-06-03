@@ -2,6 +2,9 @@
 
 import React from "react";
 
+
+import {useTranslation} from 'react-i18next';
+import '../src/i18n';
 /**
  *  UI: border magic from tailwind css btns
  *  Link: https://ui.aceternity.com/components/tailwindcss-buttons
@@ -25,6 +28,7 @@ const MagicButton = ({
   handleClick?: () => void;
   otherClasses?: string;
 }) => {
+  const {t, i18n } = useTranslation();
   return (
     <button
       className={`relative inline-flex h-12 w-full md:w-${width} md:mt-10 overflow-hidden rounded-lg p-[1px] focus:outline-none z-10`}
@@ -38,7 +42,7 @@ const MagicButton = ({
              bg-slate-950 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-2 ${otherClasses}`}
       >
         {position === "left" && icon}
-        {title}
+          {title}
         {position === "right" && icon}
       </span>
     </button>

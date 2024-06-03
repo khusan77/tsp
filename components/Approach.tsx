@@ -5,19 +5,28 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
+
+
+import {useTranslation} from 'react-i18next';
+import '../src/i18n';
+
+
 const Approach = () => {
+  const {t, i18n } = useTranslation();
   return (
     <section className="w-full py-20">
       <h1 className="heading">
-        Our <span className="text-purple">approach</span>
+        {t('Наш')} <span className="text-purple">{t('Подход')}</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {/* add des prop */}
+
+        
         <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          des="involves market analysis, product design, resource planning, compliance with standards (e.g., GOST 10704-91), optimizing production, maintaining equipment, managing supply chains, mitigating risks, and investing in sustainability and R&DF"
+          title={t("Планирование")}
+          icon={<AceternityIcon order={t("Этап 1")} />}
+          des={t("Включает анализ рынка, проектирование продукции, планирование ресурсов, соблюдение стандартов (например, ГОСТ 10704-91), оптимизацию производства, техническое обслуживание оборудования, управление цепочками поставок, снижение рисков и инвестиции в устойчивое развитие.")}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -26,10 +35,13 @@ const Approach = () => {
             colors={[[125, 211, 252]]}
           />
         </Card>
+
+
+
         <Card
-          title="Development & Progress Update"
-          icon={<AceternityIcon order="Phase 2" />}
-          des="involves executing production plans, coordinating resources, monitoring quality, tracking progress, resolving issues, updating stakeholders, and continuously improving processes."
+          title={t("Развитие")}
+          icon={<AceternityIcon order={t("Этап 2")} />}
+          des={t("Включает в себя выполнение производственных планов, координацию ресурсов, мониторинг качества, отслеживание прогресса, решение проблем, информирование заинтересованных сторон и постоянное улучшение процессов.")}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -41,10 +53,13 @@ const Approach = () => {
           {/* remove this one */}
           {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
         </Card>
+
+
+        
         <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          des="involves finalizing product designs, setting up production, ensuring quality control, preparing marketing materials, coordinating distribution, and officially introducing the product to the market."
+          title={t("Производство")}
+          icon={<AceternityIcon order={t("Этап 3")} />}
+          des={t("Включает в себя доработку дизайна продукта, организацию производства, обеспечение контроля качества и официальное представление продукта закахчику.")}
         >
           <CanvasRevealEffect
             animationSpeed={3}

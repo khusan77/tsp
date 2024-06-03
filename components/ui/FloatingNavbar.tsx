@@ -10,9 +10,18 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 
 
+import { Fragment } from 'react'
+import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
-import {useTranslation} from 'react-i18next';
+
+
+
+import { useTranslation } from 'react-i18next';
 import '../../src/i18n';
+
+
+
 
 
 
@@ -27,17 +36,54 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
+  
+  
+  function classNames(...classes: string[]): string {
+    return classes.filter(Boolean).join(' ');
+  }
+
+  interface Person {
+    id: number;
+    code: string;
+    avatar: string;
+  }
+
+  const people: Person[] = [
+    // {
+    //   id: 0,
+    //   code: 'in',
+    //   avatar:
+    //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrzY-YffBAe9pxAWh1pYt9IHSYPDnoa6ydHOp8LK3ppKskt2gs75ZTUi0UC3k90UF6teU&usqp=CAU',
+    // },  
+    {
+        id: 1,
+        code: 'ru',
+        avatar:
+        'https://cdn.countryflags.com/thumbs/russia/flag-round-250.png',
+      },
+      {
+        id: 2,
+        code: 'uz',
+        avatar:
+          'https://static.vecteezy.com/system/resources/previews/016/328/589/original/uzbekistan-flat-rounded-flag-icon-with-transparent-background-free-png.png',
+      },
+  ];
 
 
 
-  const {t, i18n } = useTranslation();
-  const languages = [
-    {code: 'en', name: 'English'},
-    {code: 'ru', name: 'Russian'},
-    {code: 'uz', name: 'Uzbek'},
-  ]
+
 
   
+
+  const [selected, setSelected] = useState(people[0])
+
+  const { t, i18n } = useTranslation();
+  const languages = [
+    { code: 'ru', name: 'Русский язык' },
+    { code: 'uz', name: 'O\'zbek tili' },
+  ]
+
+
 
 
 
@@ -84,7 +130,7 @@ export const FloatingNav = ({
           // change rounded-full to rounded-lg
           // remove dark:border-white/[0.2] dark:bg-black bg-white border-transparent
           // change  pr-2 pl-8 py-2 to px-10 py-5
-          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-10 py-5 rounded-lg border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
+          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto sm:px-10 px-2 py-5 rounded-lg border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
           className
         )}
         style={{
@@ -96,16 +142,7 @@ export const FloatingNav = ({
       >
 
 
-          {
-            languages.map((language) => (
-              <button 
-                onClick={() => i18n.changeLanguage(language.code)}
-                key={language.code}
-              >
-                {language.name}
-              </button>
-            ))
-          }
+
 
 
 
@@ -114,20 +151,93 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center  flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
             {/* add !cursor-pointer */}
             {/* remove hidden sm:block for the mobile responsive */}
-            <span className=" text-sm !cursor-pointer">{t(navItem.name)}</span>
+            <span className="text-xs sm:text-sm !cursor-pointer">{t(navItem.name)}</span>
           </Link>
         ))}
 
 
 
-        {/* remove this login btn */}
-        {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+        
+<Listbox value={selected} onChange={setSelected}>
+    {({ open }) => (
+      <>
+        <div className="relative mt-1.5 w-8 h-4">
+
+
+          <ListboxButton className="relative w-full rounded-md py-0.5 pl-1 pr-1 shadow-sm focus:outline-none">
+            
+            
+            <span className="flex items-center">
+              {selected?.avatar && (
+                <img src={selected.avatar} alt="" className="h-6 w-6 flex-shrink-0 rounded-full" />
+              )}
+            </span>
+
+
+          </ListboxButton>
+
+          <Transition show={open} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
+            <ListboxOptions className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              
+              
+              {people.map((person) => (
+
+
+                <ListboxOption
+                  key={person.id}
+                  className={({ focus }) =>
+                    classNames(
+                      focus ? 'bg-[#10132E] text-white' : '',
+                      !focus ? 'text-gray-900' : '',
+                      'relative cursor-default select-none py-2 pl-0.5 pr-1'
+                    )
+                  }
+                  value={person}
+                >
+
+
+                      <div className="flex items-center" onClick={() => i18n.changeLanguage(person.code)}
+                  key={person.code}>
+                        <img src={person.avatar} alt="" className="h-6 w-6 rounded-full" />
+                      </div>
+                </ListboxOption>
+
+
+              ))}
+
+
+
+
+            </ListboxOptions>
+          </Transition>
+        </div>
+      </>
+    )}
+  </Listbox>
+
+            {/* {
+              languages.map((language) => (
+                <button
+                  onClick={() => i18n.changeLanguage(language.code)}
+                  key={language.code}
+                >
+                  {language.name}
+                </button>
+              ))
+            } */}
+
+
+
+
+
+          {/* remove this login btn */}
+          {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
           <span>Login</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
         </button> */}

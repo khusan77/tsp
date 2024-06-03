@@ -4,7 +4,14 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { socialMedia } from "@/data";
 import MagicButton from "./MagicButton";
 
+
+import {useTranslation} from 'react-i18next';
+import '../src/i18n';
+
+
 const Footer = () => {
+  const {t, i18n } = useTranslation();
+
   return (
     <footer className="w-full pt-20 pb-10">
       {/* background grid */}
@@ -18,14 +25,14 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-        Ready to order our <span className="text-purple">top</span> quality products? 
+        {t('Готовы ли вы обрести наши')} <span className="text-purple">{t('высококачественные')}</span> {t('продукты')}? 
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          Press the button below and get in touch with our managers <br /> through the e-MAIL (tsp@gmail.com)
+          {t('Нажмите кнопку и свяжитесь c нашими менеджерами')} <br /> {t('через e-MAIL (tsp@gmail.com)')}
         </p>
         <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlHFDhSxpbDRgksmJdrvQkMHFfNqcqNMcCkbMqtBhNgdMptZVMPXJNQFblPKpNFlCzxSBV" target="_blank">
           <MagicButton
-            title="Let's get in touch"
+            title={t("Свяжитесь с нами!")}
             icon={<FaLocationArrow />}
             width="50"
             position="right"

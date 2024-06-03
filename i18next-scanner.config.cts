@@ -16,9 +16,9 @@ module.exports = {
         trans: {
             extensions: [".ts", ".tsx"]
         },
-        lngs: ["en", "ru", "uz"],
+        lngs: ["ru", "uz"],
         ns: ["translation"],
-        defaultLng: "en",
+        defaultLng: "ru",
         defaultNs: "translation",
         resource: {
             loadPath: "i18n/{{lng}}/{{ns}}.json",

@@ -1,16 +1,19 @@
+
+
+
 export const navItems = [
-    { name: "Home", link: "#home" },
-    { name: "About", link: "#about" },
-    { name: "Catalogue", link: "#catalogue" },
-    { name: "Features", link: "#features" },
-    { name: "Contact", link: "#contacts" },
+    // { name: "Главная", link: "#home" },
+    { name: "О\nнас", link: "#about" },
+    { name: "Каталог", link: "#catalogue" },
+    { name: "Приемущества", link: "#features" },
+    { name: "Контакты", link: "#contacts" },
   ];
 
   
   export const gridItems = [
     {
       id: 1,
-      title: "We prioritize client collaboration, fostering open communication ",
+      title: "Мы придаем приоритет сотрудничеству и открытому общению с клиентами.",
       description: "",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
@@ -20,7 +23,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "We're very flexible with time zone communications",
+      title: "Мы адаптируемся к любым часовым поясам.",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -30,8 +33,8 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "Our Products",
-      description: "We constantly try to improve",
+      title: "Наши Продукты",
+      description: "Мы постоянно стараемся улучшить",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-center",
@@ -40,7 +43,7 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Company with a passion for manufacturing.",
+      title: "Компания co страстью к производству.",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",
@@ -51,8 +54,8 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building \r \r \r \r Online ordering app",
-      description: "The Inside Scoop",
+      title: "Идёт разработка нового IT-продукт для онлайн-заказов.",
+      description: "Новость",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
       titleClassName: "justify-center md:justify-start lg:justify-center",
@@ -61,7 +64,7 @@ export const navItems = [
     },
     {
       id: 6,
-      title: "Would you like to discuss an order?",
+      title: "Готовы обсудить ваш заказ?",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",
@@ -74,8 +77,8 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "Location of Turon Stal Profil",
-      des: "Guide: Choshtepa St.",
+      title: "Локация Турон Сталь Профиль",
+      des: "Ориентир: ул.Чоштепа",
       img: "",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "https://github.com/adrianhajdin?tab=repositories",
@@ -85,11 +88,11 @@ export const navItems = [
   export const catalogue = [
     {
       id: 1,
-      title: "Galvanized rolled steel",
-      des: "We produce galvanized steel rolls from 0.3 mm to 1.5 mm thickness and can custom-cut 500 mm wide rolls into strips of any size.",
+      title: "Оцинкованный прокат",
+      des: "Мы производим рулоны оцинкованной стали толщиной от 0,3 мм до 1,5 мм, а также можем по индивидуальному заказу нарезать рулоны шириной 500 мм на полосы любого размера.",
       img: "/p1.jpg",
       additionalInfo: {
-        title: "Type of thickness:",
+        title: "Тип толщины:",
         des: "",
         features: {
           first: "-500х0,33  \r \r \r \r -500х0,8",
@@ -103,22 +106,34 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Pipe products",
-      des: "Our electric pipe welding mills produce round and profile pipes meeting regulatory standards with high-quality weld seams. They adhere to GOST 10704-91 and GOST 10705-80 standards.",
+      title: "Трубная продукция",
+      des: "Наши электротрубосварочные станы производят круглые и профильные трубы, соответствующие нормативным требованиям, c качественными сварными швами. Они соответствуют стандартам ГОСТ 10704-91 и ГОСТ 10705-80.",
       img: "/p2.jpg",
+      additionalInfo: {
+        title: "",
+        des: "",
+        features: {
+          first: "", 
+          second: "", 
+          third: "", 
+          fourth: "", 
+          fiveth: "", 
+          sixth: "", 
+        },
+      },
     },
     {
       id: 3,
-      title: "Galvanized profiles for drywall",
-      des: "The company produces high-quality galvanized drywall profiles, including rack (wall), ceiling, and guide profiles.",
+      title: "Оцинкованные профили для гипсокартона",
+      des: "Компания производит высококачественные оцинкованные профили для гипсокартона, в том числе стоечные (стеновые), потолочные и направляющие профили.",
       img: "/p3.jpg",
       additionalInfo: {
-        title: "Advantages of these profiles:",
+        title: "Преимущества этих профилей:",
         des: "",
         features: {
-          first: "- Rack profile (wall);", 
-          second: "- Ceiling profile;", 
-          third: "- Guide profile.", 
+          first: "- Стойочный профиль (настенный);", 
+          second: "- Потолочный профиль;", 
+          third: "- Профиль гида.", 
           fourth: "", 
           fiveth: "", 
           sixth: "", 
@@ -127,21 +142,57 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Rolled metal",
-      des: "The company sells various types of rolled metal products produced in the Republic of Uzbekistan and abroad.",
+      title: "Металлопрокат",
+      des: "Компания реализует различные виды металлопроката, производимого в Республике Узбекистан и за рубежом.",
       img: "/p4.jpg",
+      additionalInfo: {
+        title: "",
+        des: "",
+        features: {
+          first: "", 
+          second: "", 
+          third: "", 
+          fourth: "", 
+          fiveth: "", 
+          sixth: "", 
+        },
+      },
     },
     {
       id: 5,
-      title: "New Product",
-      des: "Soon...",
+      title: "Новый продукт",
+      des: "Скоро...",
       img: "/p5.png",
+      additionalInfo: {
+        title: "",
+        des: "",
+        features: {
+          first: "", 
+          second: "", 
+          third: "", 
+          fourth: "", 
+          fiveth: "", 
+          sixth: "", 
+        },
+      },
     },
     {
       id: 6,
-      title: "New Product",
-      des: "Soon...",
+      title: "Новый продукт",
+      des: "Скоро...",
       img: "/p5.png",
+      additionalInfo: {
+        title: "",
+        des: "",
+        features: {
+          first: "", 
+          second: "", 
+          third: "", 
+          fourth: "", 
+          fiveth: "", 
+          sixth: "", 
+        },
+      },
     },
   ];
   
@@ -215,29 +266,29 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Flexible approach to each client",
-      desc: "Turon Stal Profil's fully developed management system allows for customized pricing discussions, tailored production, personalized delivery, and efficient handling of legal and accounting issues.",
+      title: "Гибкий подход к каждому клиенту",
+      desc: "Возможность обсуждения стоимости продукции в каждом индивидуальном случае, производство под заказ необходимых и специфический позиций, индивидуальный подход в отгрузке товаров и закрытие юридических и бухгалтерских вопросов – результат полноценно выстроенной системе менеджмента в рамках компании Turon Stal Profil.",
       className: "md:col-span-2",
       thumbnail: "./exp1.png",
     },
     {
       id: 2,
-      title: "Local production",
-      desc: "Local production means top-notch pipes at great prices. We cut costs by manufacturing nearby, maintaining quality control for superior products at lower prices.",
+      title: "Местное производство",
+      desc: "Производство металлической продукции всегда дается немалыми усилиями, которые дают плоды спустя длительный срок. Повышение профессиональной квалификации сотрудников, оттачивание производственных навыков и усовершенствование производственных процессов – главные принципы команды TSP.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "./exp2.png",
     },
     {
       id: 3,
-      title: "Low cost, high quality",
-      desc: "Our process delivers top-quality pipes affordably. We optimize production to offer competitive prices without compromising on quality. Quality and affordability define us.",
+      title: "Низкая цена, высокое качество",
+      desc: "Низкая стоимость и высокое качество продукции получено в результате многолетнего опыта работы на территории Республики Узбекистан, прочно выстроенных партнерских отношений с контрагентами, наличие большого количества сырья для производства и высокий опыт сотрудников компании.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "/exp4.png",
     },
     {
       id: 4,
-      title: "Multitasking mode of operation",
-      desc: "Our multitasking operation streamlines production, enhancing efficiency and versatility to meet diverse customer needs with precision and quality.",
+      title: "Многозадачный режим работы",
+      desc: "Большинство партнеров достигают успехов в бизнесе в результате кропотливого налаживания графика поставок производимой нами продукции. Налаженные производственные линии и высокий профессионализм сотрудников компании, как и малого, так и высокого рангов позволяет компании TSP держать марку добросовестной компании.",
       className: "md:col-span-2",
       thumbnail: "./exp3.png"
     },
@@ -247,13 +298,5 @@ export const navItems = [
     {
       id: 1,
       img: "/telegram.png",
-    },
-    {
-      id: 2,
-      img: "/twit.svg",
-    },
-    {
-      id: 3,
-      img: "/link.svg",
     },
   ];

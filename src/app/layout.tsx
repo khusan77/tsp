@@ -19,7 +19,7 @@ export default async function RootLayout({
 }>) {
   
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning>
       <head>
         <link rel="icon" href="" sizes="any" />
       </head>
